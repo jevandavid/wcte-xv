@@ -51,13 +51,14 @@ function renderDates(filteredDates) {
 
     if (isNationals) {
       // Special rich treatment for Nationals — big highlight
-      el.className = `group relative flex flex-col md:flex-row md:items-center gap-x-6 gap-y-4 px-6 py-6 rounded-3xl border border-[#C9A66B]/40 bg-gradient-to-br from-[#C9A66B]/10 via-zinc-950 to-zinc-950 shadow-inner transition-all duration-300 hover:border-[#C9A66B]/70 hover:shadow-[0_0_0_1px_rgba(201,166,107,0.2)] nationals-row`;
+      el.className = `group relative flex flex-col md:flex-row md:items-center gap-x-6 gap-y-4 px-6 py-6 rounded-3xl border border-[#C9A66B]/50 bg-gradient-to-br from-[#C9A66B]/15 via-zinc-950 to-zinc-950 ring-1 ring-inset ring-[#C9A66B]/10 shadow-inner transition-all duration-300 hover:border-[#C9A66B]/70 hover:shadow-[0_0_0_1px_rgba(201,166,107,0.25)] nationals-row`;
       el.innerHTML = `
-        <div class="md:w-48 shrink-0">
+        <div class="md:w-56 shrink-0">
           <div class="flex items-center gap-2 mb-1">
             <span class="text-[10px] uppercase tracking-[3px] text-[#C9A66B] font-medium">NATIONALS 2027</span>
           </div>
-          <div class="font-semibold text-3xl md:text-4xl tracking-[-2px] text-white tabular-nums leading-none group-hover:text-[#C9A66B] transition-colors">
+          <div class="text-[9px] text-[#C9A66B]/60 tracking-[1.5px] mb-2">LIMITED TO 15TH ANNIVERSARY</div>
+          <div class="font-semibold text-3xl md:text-4xl tracking-[-2px] text-white tabular-nums leading-none group-hover:text-[#C9A66B] transition-colors whitespace-nowrap">
             ${event.dates}
           </div>
         </div>
@@ -66,13 +67,13 @@ function renderDates(filteredDates) {
           <div class="flex items-center gap-3">
             <div class="font-semibold text-2xl tracking-tight">${event.city}</div>
           </div>
-          <div class="text-sm text-[#C9A66B]/80 mt-1">The Iconic Celebration • Season Finale</div>
+          <div class="text-sm text-[#C9A66B]/80 mt-1">The only 15th Anniversary Nationals</div>
         </div>
 
         <div class="shrink-0">
           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-[#C9A66B] text-black text-sm font-semibold tracking-wider shadow-sm">
             <span>★</span>
-            <span>ATTEND</span>
+            <span>DON'T MISS</span>
           </div>
         </div>
       `;
@@ -89,11 +90,11 @@ function renderDates(filteredDates) {
 
       el.innerHTML = `
         <!-- DATE — the hero element -->
-        <div class="md:w-44 shrink-0">
-          <div class="font-semibold text-[22px] md:text-3xl tracking-[-1.5px] text-white tabular-nums leading-none group-hover:text-[#C9A66B] transition-colors duration-200">
+        <div class="md:w-52 shrink-0">
+          <div class="font-semibold text-[22px] md:text-3xl tracking-[-1.5px] text-white tabular-nums leading-none group-hover:text-[#C9A66B] transition-colors duration-200 whitespace-nowrap">
             ${event.dates}
           </div>
-          <div class="text-[10px] uppercase tracking-[2.5px] text-zinc-500 mt-1">2027</div>
+          <div class="text-[10px] uppercase tracking-[2.5px] text-zinc-500 mt-1 whitespace-nowrap">2027</div>
         </div>
 
         <!-- City + optional micro label -->
