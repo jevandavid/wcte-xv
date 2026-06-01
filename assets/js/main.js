@@ -224,23 +224,18 @@ function init() {
 
     try {
       // 1. Send to Google Sheets via Apps Script
-      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+      // Using mode: 'no-cors' because Google Apps Script Web Apps have unreliable CORS support.
+      // We treat any completed fetch (no network error) as success.
+      await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data)
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit to Google Sheets");
-      }
-
-      const result = await response.json();
-
-      if (!result.success) {
-        throw new Error(result.message || "Submission failed");
-      }
+      // If we reach here without a network error, assume the submission succeeded.
 
       // 2. Send thank-you email via EmailJS (fire and forget)
       if (typeof emailjs !== "undefined" && EMAILJS_TEMPLATE_ID !== "YOUR_EMAILJS_TEMPLATE_ID_HERE") {
